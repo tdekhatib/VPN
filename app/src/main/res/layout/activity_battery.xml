@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="16">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.08"
+        android:background="@drawable/ic_bkg_blue"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarr"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:visibility="visible"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <com.inapp.vpn.Utils.CustomTxTRegular
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="@string/battery_saver"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="-35dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:padding="@dimen/_30sdp"
+                android:src="@drawable/ic_pie_bg" />
+
+
+            <ImageView
+                android:id="@+id/shadowcpu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:padding="50dp"
+                android:src="@drawable/ic_rounded_shadow" />
+
+            <RelativeLayout
+                android:layout_width="215dp"
+                android:layout_height="208dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp"
+                android:gravity="center"
+                android:padding="24dp">
+
+                <me.itangqi.waveloadingview.WaveLoadingView
+                    android:id="@+id/waveView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:wlv_progressValue="40"
+                    app:wlv_round_rectangle="true"
+                    app:wlv_shapeType="circle"
+                    app:wlv_titleBottomSize="@dimen/_30sdp"
+                    app:wlv_titleCenterColor="@color/colortextblue"
+                    app:wlv_titleCenterSize="@dimen/_25sdp"
+                    app:wlv_triangle_direction="north"
+                    app:wlv_waveAmplitude="40"
+                    app:wlv_waveColor="@color/colortextblue" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-25dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.inapp.vpn.Utils.CustomTxTRegular
+                    android:id="@+id/hourmain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/_18sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxTRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="h"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/_18sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxTRegular
+                    android:id="@+id/minutesmain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:text="15"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/_18sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxTRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="m"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/_18sdp" />
+
+            </LinearLayout>
+
+            <com.inapp.vpn.Utils.CustomTxTRegular
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-5dp"
+                android:layout_weight="1"
+                android:gravity="top|center"
+                android:text="Charging Time Remaning"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/_10sdp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.8"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/_8sdp"
+        android:weightSum="3.5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+
+            <ImageView
+                android:id="@+id/normal"
+                android:layout_width="@dimen/_88sdp"
+                android:layout_height="@dimen/_88sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_normal_power_mode_btn" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/colorview" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/hourn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    android:text="8"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="h"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:text="15"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="m"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--<ImageView-->
+        <!--android:layout_gravity="center"-->
+        <!--android:paddingTop="@dimen/_20sdp"-->
+        <!--android:layout_marginLeft="-7dp"-->
+        <!--android:layout_marginRight="-7dp"-->
+        <!--android:src="@drawable/green_line"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="@dimen/_30sdp"-->
+        <!--android:layout_weight="0.7"-->
+        <!--/>-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/powersaving"
+                android:layout_width="@dimen/_88sdp"
+                android:layout_height="@dimen/_88sdp"
+                android:src="@drawable/ic_ultra_power_mode_btn" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/colorview" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/hourp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    android:text="8"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="h"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/minutesp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:text="15"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="m"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--<ImageView-->
+        <!--android:layout_gravity="center"-->
+        <!--android:paddingTop="@dimen/_20sdp"-->
+        <!--android:layout_marginLeft="-8dp"-->
+        <!--android:layout_marginRight="-8dp"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="@dimen/_30sdp"-->
+        <!--android:layout_weight="0.7"-->
+        <!--android:src="@drawable/blue_line"/>-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+
+            <ImageView
+                android:id="@+id/ultra"
+                android:layout_width="@dimen/_88sdp"
+                android:layout_height="@dimen/_88sdp"
+                android:src="@drawable/ic_extreme_power_mode_btn" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/colorview" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom|center"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/houru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_25sdp"
+                    android:text="8"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="h"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/minutesu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:text="15"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+                <com.inapp.vpn.Utils.CustomTxtSemibold
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="m"
+                    android:textColor="@color/colorlighttext"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/admob_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit"/>
+    <RelativeLayout
+        android:id="@+id/fl_adplaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:visibility="visible"/>
+</LinearLayout>
+</ScrollView>

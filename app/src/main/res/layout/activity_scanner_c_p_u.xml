@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="6"
+        android:background="@drawable/ic_bkg_blue"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarr"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:visibility="visible"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <com.inapp.vpn.Utils.CustomTxTRegular
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="Cooling CPU"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_marginTop="-10dp"
+            android:layout_width="260dp"
+            android:layout_height="260dp">
+
+            <ImageView
+                android:id="@+id/cpu"
+                android:src="@drawable/ic_cpu_cooling_icon"
+                android:padding="@dimen/_28sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/shadowcpu"
+                android:src="@mipmap/ic_rounded_shadow"
+                android:padding="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.skyfishjy.library.RippleBackground
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/content"
+                app:rb_color="@color/text_color"
+                app:rb_radius="22dp"
+                app:rb_rippleAmount="4"
+                app:rb_duration="3000"
+                app:rb_scale="6">
+
+                <ImageView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/centerImage"
+                    android:clickable="true" />
+
+
+
+            </com.skyfishjy.library.RippleBackground>
+
+            <ImageView
+                android:id="@+id/scann"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="45dp"
+                android:src="@drawable/ic_cpu_cooling_redar" />
+
+            <ImageView
+                android:id="@+id/iv_completecheck"
+                android:src="@drawable/ic_cooling_complete_check"
+                android:layout_centerInParent="true"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.inapp.vpn.Utils.CustomTxtSemibold
+            android:id="@+id/cpucooler"
+            android:textColor="@color/tab_background_selected"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_marginTop="10dp"
+            android:text="App Cools Down "
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorview"/>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_weight="2.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/rel">
+
+        <!--<ImageView-->
+        <!--android:src="@drawable/back_cpu_sca"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+
+        <ImageView
+            android:layout_marginLeft="-700dp"
+            android:id="@+id/heart"
+            android:src="@drawable/ic_cpu_cooler_wave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_15sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_centerInParent="true"
+            android:foregroundGravity="center"
+            android:id="@+id/recycler_view"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+    </RelativeLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/admob_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit"/>
+</LinearLayout>

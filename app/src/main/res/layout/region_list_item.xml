@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        android:id="@+id/flag_image_r"
+        >
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:src="@drawable/flag_default"
+            android:layout_centerVertical="true"
+            android:id="@+id/country_flag"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/region_title"
+            android:layout_toRightOf="@+id/country_flag"
+            android:textSize="18dp"
+            android:textColor="@color/primary"
+            android:layout_marginLeft="20dp"
+            android:text="DEFAULT REGION"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="218ms"
+            android:textSize="16dp"
+            android:id="@+id/region_limit"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="320dp"
+            android:background="@drawable/ic_crown" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:padding="1dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp">
+
+        <ImageView
+            android:id="@+id/country_flag1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/flag_default" />
+
+        <TextView
+            android:id="@+id/region_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="20dp"
+            android:text="DEFAULT REGION"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/region_limit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:padding="@dimen/default_padding"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:visibility="visible" />
+    </LinearLayout>
+</RelativeLayout>

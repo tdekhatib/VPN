@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0d1543"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:layout_below="@id/top_bar"
+    tools:context="com.inapp.vpn.Activities.MainActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<ImageView
+    android:id="@+id/navigationTop"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:src="@drawable/uploading"
+    android:layout_alignParentRight="true"
+    android:layout_marginTop="85dp"
+    android:layout_marginRight="20dp"/>
+    <TextView
+        android:id="@+id/uploading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@+id/navigationTop"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/navigation"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/downloading"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="85dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:id="@+id/downloading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@+id/navigationTop"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentLeft="true">
+    </TextView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/category"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:id="@+id/btnServerList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/common_round_yellow"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_crown"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_crown" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/ic_crown"
+                android:layout_toRightOf="@+id/ic_crown"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="GET PREMIUM"
+                    android:textColor="@color/gnt_black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="* Go Fast Servers &amp; No Ads "
+                    android:textColor="@color/gnt_black" />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/connection_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:drawableStart="@drawable/ic_dot"
+                android:drawableLeft="@drawable/ic_dot"
+                android:drawableEnd="@drawable/ic_signal"
+                android:drawableRight="@drawable/ic_signal"
+                android:drawablePadding="10dp"
+                android:gravity="bottom"
+                android:text="Connected Server"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:src="@drawable/flag_default"
+                android:visibility="gone"
+
+                android:layout_marginEnd="20dp"
+                android:layout_width="30dp"
+                android:layout_centerVertical="true"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/vpn_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/common_round_white"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="45dp"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/flag_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/flag_image" />
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/flag_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="5dp"
+                    android:textSize="17dp"
+                    android:text="Select Country"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/vpn_details"
+                    android:layout_width="45dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_drop_down" />
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/header"
+                android:layout_marginTop="10dp">
+
+                <View
+                    android:id="@+id/saperater"
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="#000" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/saperater"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/status_arrow" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/connection_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:text="Selected"
+                            android:textColor="#000"
+                            android:textSize="22dp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/connection_status_image"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/saperater"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/status_arrow" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:id="@+id/purchase_layout"
+                        android:text="Go Premium"
+                        android:textColor="#000"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_button">
+
+            <ImageView
+                android:id="@+id/connect_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_on_off" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/connect_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-5dp"
+                android:layout_marginBottom="-5dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loader" />
+
+            <LinearLayout
+                android:id="@+id/status_time_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/animation_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Connected"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tv_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="00:00:56"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/nvi"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+
+
+            <TextView
+                android:layout_marginTop="35dp"
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Try Free Server"
+                android:layout_gravity="center"
+                android:textColor="@color/gnt_black"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/speedButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Speed Booster"
+                android:layout_margin="10dp"
+                android:background="@drawable/gnt_rounded_corners_shape">
+
+            </Button>
+            <Button
+                android:id="@+id/BatteryButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Battery Saver"
+                android:layout_margin="10dp"
+                android:background="@drawable/gnt_rounded_corners_shape">
+            </Button>
+            <Button
+                android:id="@+id/cpuButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="CPU Cooler"
+                android:layout_margin="10dp"
+                android:background="@drawable/gnt_rounded_corners_shape">
+
+            </Button>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_free"
+                android:layout_width="match_parent"
+                android:layout_height="245dp"
+                android:layout_marginTop="10dp" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/fl_adplaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>
+

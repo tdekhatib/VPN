@@ -1,0 +1,140 @@
+<resources>
+    <!--App Name-->
+    <string name="app_name">Indrak Premium VPN</string>
+    <!--END App Name-->
+
+    <string name="vpn_process_name" translatable="false">:my.custom.vpn.process.name</string>
+    <string name="vpn_provider_authorities" translatable="false">com.anchorfree.hydrasdk.app.demo</string>
+
+    <!--Application Layout Text Titles    -->
+    <string name="log_in">LOGIN</string>
+    <string name="log_out">LOGOUT</string>
+    <string name="connect">CONNECT</string>
+    <string name="disconnect">DISCONNECT</string>
+    <string name="optimal_server">OPTIMAL SERVER</string>
+    <string name="unknown">UNKNOWN</string>
+
+    <string name="devices_exceed">Available device count is exceed. Please consider upgrading your subscription.</string>
+    <string name="sessions_exceed">Available active session count is exceed. Please consider upgrading your subscription.</string>
+
+    <string name="version">Version</string>
+    <string name="app_error">Application error</string>
+    <string name="no_data">No data</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="account_type">Account Type</string>
+    <string name="activated_devices">Activated Devices</string>
+    <string name="account">Account</string>
+    <string name="signin_error">Unable to sign in</string>
+    <string name="no_network">Unable to connect to server. Check your Internet connection.</string>
+    <string name="online_devices">Online Devices</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="vpn_server_location">VPN Server Location</string>
+    <string name="vpn_node">VPN Node</string>
+    <string name="legal_information">Legal Information</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <!-- END of Application Layout Text Title    -->
+
+
+    <!--Contact E-mail-->
+    <string name="Help_to_improve_Email">kumar.indra.raaj@gmail.com</string>
+    <!--END Contact E-mail-->
+
+    <!--Application others Titles-->
+    <string name="tell_to_friend_text"> I have Found Very fast VPN Download Now</string>
+
+
+    <!--END Application others Titles-->
+
+
+    <!-- Application State Text    -->
+    <string name="logged_in">Logged in</string>
+    <string name="logged_out">Logged out</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Not Connect</string>
+    <!--END of Application State Text    -->
+
+    <!--Application     -->
+    <string name="host_url_title">Host Url: </string>
+    <string name="carrier_id_title">Carrier ID: </string>
+    <string name="confirm">CONFIRM</string>
+
+    <string name="traffic_stats">UL: %1$s, DL: %2$s </string>
+    <string name="traffic_limit">%1$s of %2$s available</string>
+    <string name="traffic_unlimited">UNLIMITED</string>
+
+    <string name="current_server">CURRENT_SERVER</string>
+    <string name="connecting">Connecting</string>
+    <string name="paused">Paused</string>
+
+    <!--    Application Navigation Drawer Text Titles -->
+    <string name="title_activity_navi">NaviActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Premium VPN</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <!-- END of Application Navigation Drawer Text Titles -->
+
+    <!--Enable and Disable Ads in App-->
+    <bool name="ads_switch">true</bool>
+    <!--END Enable and Disable Ads in App-->
+
+    <!--Google Ads ID'S-->
+    <string name="admob_appid">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="admob_intersitail">ca-app-pub-3940256099942544/1033173712</string>
+    <!--END Google Ads-->
+
+    <!--Facebook Ad ID / Facebook ads for future update-->
+    <string name="facebook_placement_id">125586658_568258654</string>
+    <!--END Facebook Ads-->
+
+    <!--Change Privacy Policy URL-->
+    <string name="privacy_policy_link">https://docs.google.com/document/d/1WfCF7VbqPNuZvwydknek5pCkQH3zxuuYQl3bs6eudBg/edit</string>
+    <!--END Change Privacy Policy URL-->
+
+    <!--User can show either google ads or facebook ads in servers list-->
+    <!--Note-1: if Facebook flag is false and  true thadmoben Admob Banner ad will be shown-->
+    <!--Note-2: if both flags are true facebook ad will be shown-->
+    <bool name="admob_list_ads">true</bool>
+
+    <string name="kBps">kB/s</string>
+    <string name="MBps">MB/s</string>
+    <string name="kbps">kb/s</string>
+    <string name="Mbps">Mb/s</string>
+
+    <string name="plus99">99+</string>
+    <string name="dash">-</string>
+    <string name="traffic_in">%1$s</string>
+    <string name="traffic_out">%1$s</string>
+    <!-- Facebook ads for future update-->
+    <bool name="facebook_list_ads">false</bool>
+    <string name="speedtxt">Optimize your phone\'s speed by using our exclusive feature of eVPN. It will close your running tasks.  </string>
+    <string name="cool_down">Cool Down</string>
+    <string name="overheated">OVERHEATED</string>
+    <string name="apps_are_causing_problem_hit_cool_down" translatable="false">Apps Are Causing Problem Hit Cool Down</string>
+
+    <string name="cpu_cooler">CPU Cooler</string>
+    <string name="ext_battery">Extended Battery Up \n to 6h 30m</string>
+    <string name="running_processes">Running Processes</string>
+    <string name="ram_usage">Ram Usage</string>
+    <string name="batterysavertxt">Save your battery power and optimize battery usage with just 1 tap, longer the phone battery life up to 80%.</string>
+    <!--vip subscription period prices-->
+    <string name="vip_price_month"> $3.29</string>
+    <string name="vip_price_3month"> $4.39</string>
+    <string name="vip_price_6month"> $6.59</string>
+    <string name="vip_price_12month"> $9.49</string>
+    <string name="speed_booster">Speed Booster</string>
+    <!--vip subscription period prices-->
+
+    <string name="interstitial_ad_unit" translatable="false">ca-app-pub-6098768079659830/2690364172</string>
+    <string name="banner_ad_unit" translatable="false"> ca-app-pub-6098768079659830/4021603626</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-6098768079659830~1405202666</string>
+    <string name="battery_saver">Battery Saver</string>
+    <string name="extended_battery_life">Extended Battery Up \n to 2h 10m </string>
+    <string name="optimize">optimize</string>
+
+</resources>
