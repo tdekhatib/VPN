@@ -412,13 +412,14 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         vpn_detail_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //showServerList();
                 //startActivity(new Intent(ContentsActivity.this, Servers.class));
-                showOrHideAppendLayout();
+               showOrHideAppendLayout();
             }
         });
 
 
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription)) {
             // Initialize the Mobile Ads SDK.
 
             MobileAds.initialize(ContentsActivity.this, getString(R.string.admob_appid));
@@ -1236,6 +1237,11 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
     }
     @OnClick(R.id.btnServerList)
     void showServerList(){
+        startActivity(new Intent(this, Servers.class));
+    }
+
+    @OnClick(R.id.vpn_location)
+    void showServerList1(){
         startActivity(new Intent(this, Servers.class));
     }
     @OnClick(R.id.category)

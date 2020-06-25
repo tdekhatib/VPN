@@ -10,12 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
-        android:visibility="gone"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/splashscreencolor"
         app:tabIndicatorHeight="4dp"
         app:tabSelectedTextColor="#000"
-        app:tabBackground="@drawable/ic_crown"
         app:tabMode="fixed"
         >
     </com.google.android.material.tabs.TabLayout>

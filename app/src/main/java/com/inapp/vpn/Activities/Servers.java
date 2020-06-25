@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import com.inapp.vpn.Fragments.FragmentFree;
 import com.inapp.vpn.R;
 import com.google.android.material.tabs.TabLayout;
 import com.inapp.vpn.AdapterWrappers.TabAdapter;
@@ -35,7 +36,7 @@ public class Servers extends AppCompatActivity {
         *         Free Server will be shown in the "Free Server" fragment...
          * */
         adapter.addFragment(new FragmentVip(), "Vip Server");
-        //adapter.addFragment(new FragmentFree(), "Free Server");
+        adapter.addFragment(new FragmentFree(), "Free Server");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
