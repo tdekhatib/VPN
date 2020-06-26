@@ -412,9 +412,9 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         vpn_detail_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //showServerList();
+                showServerList();
                 //startActivity(new Intent(ContentsActivity.this, Servers.class));
-               showOrHideAppendLayout();
+               //showOrHideAppendLayout();
             }
         });
 
@@ -1240,10 +1240,10 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         startActivity(new Intent(this, Servers.class));
     }
 
-    @OnClick(R.id.vpn_location)
+   /* @OnClick(R.id.vpn_location)
     void showServerList1(){
         startActivity(new Intent(this, Servers.class));
-    }
+    }*/
     @OnClick(R.id.category)
     void openSideNavigation(){
         drawer.openDrawer(GravityCompat.START,true);

@@ -413,6 +413,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_free"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="245dp"
                 android:layout_marginTop="10dp" />

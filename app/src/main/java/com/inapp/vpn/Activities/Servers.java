@@ -24,7 +24,7 @@ public class Servers extends AppCompatActivity {
         setContentView(R.layout.activity_servers);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarold);
-        toolbar.setTitle("         Premium Servers");
+        toolbar.setTitle("Premium Servers");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
