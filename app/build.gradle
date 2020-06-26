@@ -149,4 +149,7 @@ dependencies {
     implementation 'com.github.daoibrahim:AdmobAdvancedNativeRecyclerview:1.0.0'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
 }

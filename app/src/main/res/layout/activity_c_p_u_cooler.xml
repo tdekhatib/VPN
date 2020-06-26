@@ -57,6 +57,7 @@
                 android:id="@+id/iv_tempimg"
                 android:layout_width="match_parent"
                 android:layout_height="166dp"
+                android:visibility="invisible"
                 android:layout_marginTop="-40dp"
                 android:padding="65dp"
                 android:src="@drawable/ic_before_cpu_cooler_icon" />
@@ -66,9 +67,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/_25sdp"
                 android:gravity="center"
                 android:text="23.2"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />

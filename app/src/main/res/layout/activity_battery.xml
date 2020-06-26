@@ -42,54 +42,37 @@
             android:visibility="gone" />
 
 
-        <RelativeLayout
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="-35dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:padding="@dimen/_30sdp"
-                android:src="@drawable/ic_pie_bg" />
 
 
-            <ImageView
-                android:id="@+id/shadowcpu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:padding="50dp"
-                android:src="@drawable/ic_rounded_shadow" />
+
 
             <RelativeLayout
+                android:layout_centerInParent="true"
                 android:layout_width="215dp"
                 android:layout_height="208dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="17dp"
-                android:gravity="center"
-                android:padding="24dp">
+                android:padding="15dp">
 
                 <me.itangqi.waveloadingview.WaveLoadingView
                     android:id="@+id/waveView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    app:wlv_borderColor="#FFFFFF"
+                    app:wlv_borderWidth="6dp"
                     app:wlv_progressValue="40"
                     app:wlv_round_rectangle="true"
                     app:wlv_shapeType="circle"
                     app:wlv_titleBottomSize="@dimen/_30sdp"
-                    app:wlv_titleCenterColor="@color/colortextblue"
-                    app:wlv_titleCenterSize="@dimen/_25sdp"
+
+                    app:wlv_titleCenterColor="#FFFFFF"
+                    app:wlv_titleCenterSize="@dimen/_30sdp"
+                    app:wlv_titleCenterStrokeColor="#FFFFFF"
+                    app:wlv_titleCenterStrokeWidth="2dp"
                     app:wlv_triangle_direction="north"
                     app:wlv_waveAmplitude="40"
-                    app:wlv_waveColor="@color/colortextblue" />
+                    app:wlv_waveColor="#2499E0" />
 
             </RelativeLayout>
-
-        </RelativeLayout>
 
         <LinearLayout
 
@@ -101,6 +84,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

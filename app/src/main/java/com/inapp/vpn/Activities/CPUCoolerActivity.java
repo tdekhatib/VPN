@@ -106,7 +106,7 @@ public class CPUCoolerActivity extends AppCompatActivity {
 
             coolbutton.setImageResource(R.drawable.clear_btn);
             ivtemping.setImageResource(R.drawable.ic_after_cooling_icon);
-            tempimg.setImageResource(R.drawable.ic_ultra_power_mode_rounded_bg);
+            tempimg.setImageResource(R.drawable.ic_cooling_complete);
             showmain.setText("NORMAL");
             showmain.setTextColor(Color.parseColor("#39c900"));
             showsec.setText("CPU Temperature is Good");

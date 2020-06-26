@@ -96,7 +96,7 @@
                 <ImageView
                     android:layout_width="190dp"
                     android:layout_height="190dp"
-                    android:src="@drawable/bg_inner_charge_booster" />
+                    android:src="@drawable/speed" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
