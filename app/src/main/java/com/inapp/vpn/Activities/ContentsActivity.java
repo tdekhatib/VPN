@@ -750,7 +750,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                             disconnectAlert();
                         }
                     });
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription)) {
 
                         if (mInterstitialAd.isLoaded()) {
                             mInterstitialAd.show();
@@ -771,7 +771,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
 
                     STATUS = "Connect";
 
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription)) {
 //                        Interstitial Ad loaded successfully...
                         mInterstitialAd.setAdListener(new AdListener() {
                             @Override
