@@ -518,7 +518,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
     @Override
     protected void onStart() {
         super.onStart();
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription)) {
             //native
             refreshAd();
             //interstitital
@@ -548,6 +548,8 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                     }
                 }
             });
+        }else {
+
         }
 
     }

@@ -91,11 +91,17 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
             @Override
             public void success(List<Country> countries) {
                 for (int i = 0; i < countries.size(); i++) {
-                    if (i % 2 == 0) {
+                    if(isAds){
+                        if (i % 2 == 0) {
+                            countryArrayList.add(countries.get(i));
+                        }else if(i%5 == 0){
+                            countryArrayList.add(null);
+                        }
+                    }else {
                         countryArrayList.add(countries.get(i));
-                    }else if(i%5 == 0){
-                        if (isAds)countryArrayList.add(null);
+
                     }
+
                 }
                 adapter.setData(countryArrayList);
                 //adapter.notifyDataSetChanged();
