@@ -37,11 +37,11 @@
           >
         </TextView>
         <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView1"
             android:adjustViewBounds="true"
             android:background="@color/transparent"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/gif"
             />
     </LinearLayout>
     <LinearLayout
@@ -67,11 +67,11 @@
             >
         </TextView>
         <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView2"
             android:layout_width="@dimen/_30sdp"
             android:adjustViewBounds="true"
             android:layout_height="@dimen/_20sdp"
             android:background="@color/transparent"
-            android:src="@drawable/gif"
             />
     </LinearLayout>
 
@@ -391,8 +391,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nvi"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="10dp">
+
+
+
 
             <TextView
                 android:layout_marginTop="35dp"
@@ -403,33 +406,46 @@
                 android:layout_gravity="center"
                 android:textColor="@color/gnt_black"
                 android:textStyle="bold" />
-            <Button
-                android:id="@+id/speedButton"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Speed Booster"
-                android:layout_margin="10dp"
-                android:background="@drawable/gnt_rounded_corners_shape">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:weightSum="3">
 
-            </Button>
-            <Button
-                android:id="@+id/BatteryButton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Battery Saver"
-                android:layout_margin="10dp"
-                android:background="@drawable/gnt_rounded_corners_shape">
-            </Button>
-            <Button
-                android:id="@+id/cpuButton"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="CPU Cooler"
-                android:layout_margin="10dp"
-                android:background="@drawable/gnt_rounded_corners_shape">
+                <Button
+                    android:padding="10dp"
+                    android:id="@+id/speedButton"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Speed Booster"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/gnt_rounded_corners_shape">
 
-            </Button>
+                </Button>
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/BatteryButton"
+                    android:layout_width="0dp"
+                    android:padding="10dp"
 
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Battery Saver"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/gnt_rounded_corners_shape">
+                </Button>
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/cpuButton"
+                    android:padding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="CPU Cooler"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/gnt_rounded_corners_shape">
+
+                </Button>
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_free"

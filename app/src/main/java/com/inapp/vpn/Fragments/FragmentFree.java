@@ -37,7 +37,7 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
     private FragmentVip.RegionChooserInterface regionChooserInterface;
     int server;
     InterstitialAd mInterstitialAd;
-
+    boolean isAds;
     private RelativeLayout animationHolder;
 
 
@@ -50,18 +50,19 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
         countryArrayList = new ArrayList<>();
         animationHolder = view.findViewById(R.id.animation_layout);
 
-        adapter = new ServerListAdapterFree(countryArrayList, getActivity());
+        adapter = new ServerListAdapterFree(getActivity());
+        recyclerView.setAdapter(adapter);
 
         if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.facebook_list_ads) && (!Config.ads_subscription || !Config.all_subscription)) {
             //facebook adapter
-            FBNativeAdapter nativeAdapter = FBNativeAdapter.Builder.with(getString(R.string.facebook_placement_id), adapter)
+           /* FBNativeAdapter nativeAdapter = FBNativeAdapter.Builder.with(getString(R.string.facebook_placement_id), adapter)
                     .adItemInterval(4)
                     .build();
-            recyclerView.setAdapter(nativeAdapter);
+            recyclerView.setAdapter(nativeAdapter);*/
+            isAds = true;
         } else if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.admob_list_ads) && (!Config.ads_subscription || !Config.all_subscription)) {
             //admob adapter here
-
-            AdmobNativeAdAdapter admobNativeAdAdapter = AdmobNativeAdAdapter.Builder
+           /* AdmobNativeAdAdapter admobNativeAdAdapter = AdmobNativeAdAdapter.Builder
                     .with(
                             getString(R.string.admob_native),
                             adapter,
@@ -69,10 +70,12 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
                     )
                     .adItemIterval(4)
                     .build();
-            recyclerView.setAdapter(admobNativeAdAdapter);
+            recyclerView.setAdapter(admobNativeAdAdapter);*/
+            isAds = true;
         } else {
             //simple adapter
-            recyclerView.setAdapter(adapter);
+            isAds = false;
+
         }
         return view;
     }
@@ -90,9 +93,12 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
                 for (int i = 0; i < countries.size(); i++) {
                     if (i % 2 == 0) {
                         countryArrayList.add(countries.get(i));
+                    }else if(i%5 == 0){
+                        if (isAds)countryArrayList.add(null);
                     }
                 }
-                adapter.notifyDataSetChanged();
+                adapter.setData(countryArrayList);
+                //adapter.notifyDataSetChanged();
 
                 animationHolder.setVisibility(View.GONE);
 

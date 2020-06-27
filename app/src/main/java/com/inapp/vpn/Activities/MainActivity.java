@@ -56,60 +56,71 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
         selectedCountry = intent.getStringExtra("c");
 
         if (selectedCountry != null && !VPNState.CONNECTED.equals(true)) {
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                AdRequest request = new AdRequest.Builder()
-                        .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                        .build();
-                mInterstitialAd.loadAd(request);
-            }
-            mInterstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    } else {
-                        AdRequest request = new AdRequest.Builder()
-                                .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                                .build();
-                        mInterstitialAd.loadAd(request);
+            if(mInterstitialAd != null){
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    AdRequest request = new AdRequest.Builder()
+                            .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                            .build();
+                    mInterstitialAd.loadAd(request);
+                }
+                mInterstitialAd.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        // Code to be executed when an ad finishes loading.
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            AdRequest request = new AdRequest.Builder()
+                                    .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                    .build();
+                            mInterstitialAd.loadAd(request);
+                        }
                     }
-                }
 
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    // Code to be executed when an ad request fails.
-                }
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Code to be executed when an ad request fails.
+                    }
 
-                @Override
-                public void onAdOpened() {
-                    // Code to be executed when the ad is displayed.
-                }
+                    @Override
+                    public void onAdOpened() {
+                        // Code to be executed when the ad is displayed.
+                    }
 
-                @Override
-                public void onAdClicked() {
-                    // Code to be executed when the user clicks on an ad.
-                }
+                    @Override
+                    public void onAdClicked() {
+                        // Code to be executed when the user clicks on an ad.
+                    }
 
-                @Override
-                public void onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-                }
+                    @Override
+                    public void onAdLeftApplication() {
+                        // Code to be executed when the user has left the app.
+                    }
 
-                @Override
-                public void onAdClosed() {
-                    // Code to be executed when the interstitial ad is closed.
-                    locale = new Locale("", selectedCountry);
+                    @Override
+                    public void onAdClosed() {
+                        // Code to be executed when the interstitial ad is closed.
+                        locale = new Locale("", selectedCountry);
 
-                    imgFlag.setImageResource(getResources().getIdentifier("drawable/" + selectedCountry.toLowerCase(), null, getPackageName()));
-                    flagName.setText(locale.getDisplayCountry());
+                        imgFlag.setImageResource(getResources().getIdentifier("drawable/" + selectedCountry.toLowerCase(), null, getPackageName()));
+                        flagName.setText(locale.getDisplayCountry());
 
-                    updateUI();
-                    connectToVpn();
-                }
-            });
+                        updateUI();
+                        connectToVpn();
+                    }
+                });
+
+            }else {
+                locale = new Locale("", selectedCountry);
+
+                imgFlag.setImageResource(getResources().getIdentifier("drawable/" + selectedCountry.toLowerCase(), null, getPackageName()));
+                flagName.setText(locale.getDisplayCountry());
+
+                updateUI();
+                connectToVpn();
+            }
 
         }
 

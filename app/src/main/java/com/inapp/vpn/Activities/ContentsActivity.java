@@ -77,6 +77,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.dmoral.toasty.Toasty;
 import fr.bmartel.speedtest.SpeedTestSocket;
+import pl.droidsonroids.gif.GifImageView;
 
 public abstract class ContentsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -147,6 +148,13 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
 
     @BindView((R.id.BatteryButton))
     Button batteryButton;
+
+    @BindView(R.id.gifImageView1)
+    GifImageView gifImageView1;
+
+    @BindView(R.id.gifImageView2)
+    GifImageView gifImageView2;
+
     //admob native advance)
     private UnifiedNativeAd nativeAd;
     public InterstitialAd mInterstitialAd;
@@ -167,60 +175,66 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             @Override
             public void onClick(View view) {
                 //interstitial
-
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    AdRequest request = new AdRequest.Builder()
-                            .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                            .build();
-                    mInterstitialAd.loadAd(request);
+                if(mInterstitialAd != null){
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        AdRequest request = new AdRequest.Builder()
+                                .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                .build();
+                        mInterstitialAd.loadAd(request);
                   /*  Intent intent=new Intent(ContentsActivity.this,SpeedBoosterActivity.class);
                     startActivity(intent);*/
-                }
-                mInterstitialAd.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdLoaded() {
-                        // Code to be executed when an ad finishes loading.
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        } else {
-                            AdRequest request = new AdRequest.Builder()
-                                    .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                                    .build();
-                            mInterstitialAd.loadAd(request);
+                    }
+                    mInterstitialAd.setAdListener(new AdListener() {
+                        @Override
+                        public void onAdLoaded() {
+                            // Code to be executed when an ad finishes loading.
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                            } else {
+                                AdRequest request = new AdRequest.Builder()
+                                        .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                        .build();
+                                mInterstitialAd.loadAd(request);
                   /*  Intent intent=new Intent(ContentsActivity.this,SpeedBoosterActivity.class);
                     startActivity(intent);*/
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Code to be executed when an ad request fails.
-                    }
+                        @Override
+                        public void onAdFailedToLoad(int errorCode) {
+                            // Code to be executed when an ad request fails.
+                        }
 
-                    @Override
-                    public void onAdOpened() {
-                        // Code to be executed when the ad is displayed.
-                    }
+                        @Override
+                        public void onAdOpened() {
+                            // Code to be executed when the ad is displayed.
+                        }
 
-                    @Override
-                    public void onAdClicked() {
-                        // Code to be executed when the user clicks on an ad.
-                    }
+                        @Override
+                        public void onAdClicked() {
+                            // Code to be executed when the user clicks on an ad.
+                        }
 
-                    @Override
-                    public void onAdLeftApplication() {
-                        // Code to be executed when the user has left the app.
-                    }
+                        @Override
+                        public void onAdLeftApplication() {
+                            // Code to be executed when the user has left the app.
+                        }
 
-                    @Override
-                    public void onAdClosed() {
-                        // Code to be executed when the interstitial ad is closed.
-                        Intent intent=new Intent(ContentsActivity.this,SpeedBoosterActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                        @Override
+                        public void onAdClosed() {
+                            // Code to be executed when the interstitial ad is closed.
+                            Intent intent=new Intent(ContentsActivity.this,SpeedBoosterActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }else {
+                    // Code to be executed when the interstitial ad is closed.
+                    Intent intent=new Intent(ContentsActivity.this,SpeedBoosterActivity.class);
+                    startActivity(intent);
+                }
+
 
 
 
@@ -229,111 +243,122 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         cpuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    AdRequest request = new AdRequest.Builder()
-                            .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                            .build();
-                    mInterstitialAd.loadAd(request);
-                }
-                mInterstitialAd.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdLoaded() {
-                        // Code to be executed when an ad finishes loading.
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        } else {
-                            AdRequest request = new AdRequest.Builder()
-                                    .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                                    .build();
-                            mInterstitialAd.loadAd(request);
+                if(mInterstitialAd != null){
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        AdRequest request = new AdRequest.Builder()
+                                .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                .build();
+                        mInterstitialAd.loadAd(request);
+                    }
+                    mInterstitialAd.setAdListener(new AdListener() {
+                        @Override
+                        public void onAdLoaded() {
+                            // Code to be executed when an ad finishes loading.
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                            } else {
+                                AdRequest request = new AdRequest.Builder()
+                                        .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                        .build();
+                                mInterstitialAd.loadAd(request);
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Code to be executed when an ad request fails.
-                    }
+                        @Override
+                        public void onAdFailedToLoad(int errorCode) {
+                            // Code to be executed when an ad request fails.
+                        }
 
-                    @Override
-                    public void onAdOpened() {
-                        // Code to be executed when the ad is displayed.
-                    }
+                        @Override
+                        public void onAdOpened() {
+                            // Code to be executed when the ad is displayed.
+                        }
 
-                    @Override
-                    public void onAdClicked() {
-                        // Code to be executed when the user clicks on an ad.
-                    }
+                        @Override
+                        public void onAdClicked() {
+                            // Code to be executed when the user clicks on an ad.
+                        }
 
-                    @Override
-                    public void onAdLeftApplication() {
-                        // Code to be executed when the user has left the app.
-                    }
+                        @Override
+                        public void onAdLeftApplication() {
+                            // Code to be executed when the user has left the app.
+                        }
 
-                    @Override
-                    public void onAdClosed() {
-                        // Code to be executed when the interstitial ad is closed.
-                        Intent intent=new Intent(ContentsActivity.this,CPUCoolerActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                        @Override
+                        public void onAdClosed() {
+                            // Code to be executed when the interstitial ad is closed.
+                            Intent intent=new Intent(ContentsActivity.this,CPUCoolerActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }else {
+                    Intent intent=new Intent(ContentsActivity.this,CPUCoolerActivity.class);
+                    startActivity(intent);
+                }
+
 
             }
         });
         batteryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    AdRequest request = new AdRequest.Builder()
-                            .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                            .build();
-                    mInterstitialAd.loadAd(request);
-                }
-                mInterstitialAd.setAdListener(new AdListener() {
-                    @Override
-                    public void onAdLoaded() {
-                        // Code to be executed when an ad finishes loading.
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        } else {
-                            AdRequest request = new AdRequest.Builder()
-                                    .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
-                                    .build();
-                            mInterstitialAd.loadAd(request);
+                if(mInterstitialAd != null){
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                    } else {
+                        AdRequest request = new AdRequest.Builder()
+                                .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                .build();
+                        mInterstitialAd.loadAd(request);
+                    }
+                    mInterstitialAd.setAdListener(new AdListener() {
+                        @Override
+                        public void onAdLoaded() {
+                            // Code to be executed when an ad finishes loading.
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                            } else {
+                                AdRequest request = new AdRequest.Builder()
+                                        .addTestDevice("91b511f6-d4ab-4a6b-94fa-e538dfbee85f")
+                                        .build();
+                                mInterstitialAd.loadAd(request);
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Code to be executed when an ad request fails.
-                    }
+                        @Override
+                        public void onAdFailedToLoad(int errorCode) {
+                            // Code to be executed when an ad request fails.
+                        }
 
-                    @Override
-                    public void onAdOpened() {
-                        // Code to be executed when the ad is displayed.
-                    }
+                        @Override
+                        public void onAdOpened() {
+                            // Code to be executed when the ad is displayed.
+                        }
 
-                    @Override
-                    public void onAdClicked() {
-                        // Code to be executed when the user clicks on an ad.
-                    }
+                        @Override
+                        public void onAdClicked() {
+                            // Code to be executed when the user clicks on an ad.
+                        }
 
-                    @Override
-                    public void onAdLeftApplication() {
-                        // Code to be executed when the user has left the app.
-                    }
+                        @Override
+                        public void onAdLeftApplication() {
+                            // Code to be executed when the user has left the app.
+                        }
 
-                    @Override
-                    public void onAdClosed() {
-                        // Code to be executed when the interstitial ad is closed.
-                        Intent intent=new Intent(ContentsActivity.this,BatteryActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                        @Override
+                        public void onAdClosed() {
+                            // Code to be executed when the interstitial ad is closed.
+                            Intent intent=new Intent(ContentsActivity.this,BatteryActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                }else {
+                    Intent intent=new Intent(ContentsActivity.this,BatteryActivity.class);
+                    startActivity(intent);
+                }
 
 
 
@@ -475,7 +500,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         } else {
             OneSignal.setSubscription(false);
         }
-        loadFreeServers();
+        //loadFreeServers();
         handlerTrafic = new Handler();
         handleTraficData();
     }
@@ -840,7 +865,10 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
     protected abstract void checkRemainingTraffic();
 
     protected void updateUI() {
-
+        //textDownloading.setVisibility(View.INVISIBLE);
+        //textUploading.setVisibility(View.INVISIBLE);
+        gifImageView1.setBackgroundResource(R.drawable.static_img);
+        gifImageView2.setBackgroundResource(R.drawable.static_img);
 //        To find vpn state...
         HydraSdk.getVpnState(new Callback<VPNState>() {
             @Override
@@ -857,6 +885,12 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                         break;
                     }
                     case CONNECTED: {
+                        textDownloading.setVisibility(View.VISIBLE);
+                        textUploading.setVisibility(View.VISIBLE);
+                        //gifImageView1.setVisibility(View.VISIBLE);
+                        //gifImageView2.setVisibility(View.VISIBLE);
+                        gifImageView1.setBackgroundResource(R.drawable.gif);
+                        gifImageView2.setBackgroundResource(R.drawable.gif);
 //                        vpn Connected Successfully...
                         loadIcon();
                         connectBtnTextView.setEnabled(true);
@@ -885,6 +919,10 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                         connectionStateTextView.setText(R.string.paused);
                         i_connection_status_image.setImageResource(R.drawable.ic_dot);
                         break;
+                    }
+                    default:{
+                        gifImageView1.setVisibility(View.INVISIBLE);
+                        gifImageView2.setVisibility(View.INVISIBLE);
                     }
 
                 }
@@ -1218,7 +1256,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                         countryArrayList.add(countries.get(i));
                     }
                 }
-                ServerListAdapterFree adapter = new ServerListAdapterFree(countryArrayList, ContentsActivity.this);
+                ServerListAdapterFree adapter = new ServerListAdapterFree(ContentsActivity.this);
                 rcvFree.setHasFixedSize(true);
                 rcvFree.setLayoutManager(new LinearLayoutManager(ContentsActivity.this,LinearLayoutManager.VERTICAL,false));
                 rcvFree.setAdapter(adapter);
@@ -1288,13 +1326,16 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         Log.e("speed-->>", "down-->>" + mSpeed.down.speedValue + "    upload-->>" + mSpeed.up.speedValue);
 
 
-        if (mSpeed != null && mSpeed.up != null && mSpeed.down != null) {
+        if (mSpeed != null && mSpeed.up != null && mSpeed.down != null && state.equals(VPNState.CONNECTED)) {
 
 
             textDownloading.setText(mSpeed.down.speedValue + " " + mSpeed.down.speedUnit);
             textUploading.setText(mSpeed.up.speedValue + " " + mSpeed.up.speedUnit);
 
 //            sendBroadcast(traffic);
+        }else  {
+            textDownloading.setText( "0  " + mSpeed.down.speedUnit);
+            textUploading.setText("0  "  + " " + mSpeed.up.speedUnit);
         }
 
         handleTraficData();
