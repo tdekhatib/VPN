@@ -444,7 +444,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         });
 
 
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
             // Initialize the Mobile Ads SDK.
 
             MobileAds.initialize(ContentsActivity.this, getString(R.string.admob_appid));
@@ -518,7 +518,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
     @Override
     protected void onStart() {
         super.onStart();
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
             //native
             refreshAd();
             //interstitital
@@ -710,7 +710,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             public void success(@NonNull Boolean aBoolean) {
                 if (aBoolean) {
                     STATUS = "Disconnect";
-                    mInterstitialAd.setAdListener(new AdListener() {
+                    if(mInterstitialAd != null)mInterstitialAd.setAdListener(new AdListener() {
                         @Override
                         public void onAdLoaded() {
                             // Code to be executed when an ad finishes loading.
@@ -750,7 +750,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                             disconnectAlert();
                         }
                     });
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
 
                         if (mInterstitialAd.isLoaded()) {
                             mInterstitialAd.show();
@@ -771,7 +771,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
 
                     STATUS = "Connect";
 
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
 //                        Interstitial Ad loaded successfully...
                         mInterstitialAd.setAdListener(new AdListener() {
                             @Override

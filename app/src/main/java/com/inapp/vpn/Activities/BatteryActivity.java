@@ -592,7 +592,7 @@ public class BatteryActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-            refreshAd();
+        if (!Config.vip_subscription && !Config.all_subscription)  refreshAd();
     }
     @Override
     protected void onDestroy() {

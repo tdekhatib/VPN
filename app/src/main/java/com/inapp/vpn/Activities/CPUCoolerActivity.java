@@ -46,6 +46,7 @@ import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.inapp.vpn.Apps;
+import com.inapp.vpn.Config;
 import com.inapp.vpn.R;
 import com.inapp.vpn.RecyclerAdapter;
 
@@ -489,7 +490,8 @@ public class CPUCoolerActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        refreshAd();
+        if (!Config.vip_subscription && !Config.all_subscription)  refreshAd();
+
     }
 
 }
