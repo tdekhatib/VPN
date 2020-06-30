@@ -53,14 +53,14 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
         adapter = new ServerListAdapterFree(getActivity());
         recyclerView.setAdapter(adapter);
 
-        if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.facebook_list_ads) && (!Config.ads_subscription || !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.facebook_list_ads) && (!Config.ads_subscription && !Config.all_subscription&& !Config.vip_subscription)) {
             //facebook adapter
            /* FBNativeAdapter nativeAdapter = FBNativeAdapter.Builder.with(getString(R.string.facebook_placement_id), adapter)
                     .adItemInterval(4)
                     .build();
             recyclerView.setAdapter(nativeAdapter);*/
             isAds = true;
-        } else if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.admob_list_ads) && (!Config.ads_subscription || !Config.all_subscription)) {
+        } else if (getResources().getBoolean(R.bool.ads_switch) && getResources().getBoolean(R.bool.admob_list_ads) && (!Config.ads_subscription && !Config.all_subscription && !Config.vip_subscription)) {
             //admob adapter here
            /* AdmobNativeAdAdapter admobNativeAdAdapter = AdmobNativeAdAdapter.Builder
                     .with(

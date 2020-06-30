@@ -444,7 +444,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         });
 
 
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription && !Config.vip_subscription)) {
             // Initialize the Mobile Ads SDK.
 
             MobileAds.initialize(ContentsActivity.this, getString(R.string.admob_appid));
@@ -518,7 +518,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
     @Override
     protected void onStart() {
         super.onStart();
-        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription || !Config.all_subscription)) {
+        if (getResources().getBoolean(R.bool.ads_switch) && (!Config.ads_subscription && !Config.all_subscription && !Config.vip_subscription)) {
             //native
             refreshAd();
             //interstitital
@@ -750,7 +750,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                             disconnectAlert();
                         }
                     });
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription && !Config.vip_subscription)) {
 
                         if (mInterstitialAd.isLoaded()) {
                             mInterstitialAd.show();
@@ -771,7 +771,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
 
                     STATUS = "Connect";
 
-                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription || !Config.all_subscription)) {
+                    if (getResources().getBoolean(R.bool.ads_switch)&& (!Config.ads_subscription && !Config.all_subscription && !Config.vip_subscription)) {
 //                        Interstitial Ad loaded successfully...
                         mInterstitialAd.setAdListener(new AdListener() {
                             @Override

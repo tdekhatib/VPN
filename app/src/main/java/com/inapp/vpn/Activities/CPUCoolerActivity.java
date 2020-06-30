@@ -490,8 +490,7 @@ public class CPUCoolerActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (!Config.vip_subscription && !Config.all_subscription)  refreshAd();
-
+        if (!Config.vip_subscription && !Config.all_subscription && !Config.ads_subscription) refreshAd();
     }
 
 }
