@@ -5,76 +5,187 @@
     android:id="@+id/main_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d1543"
+    android:background="#FFFFFF"
     android:gravity="bottom"
     android:orientation="vertical"
     android:scrollbars="none"
     android:layout_below="@id/top_bar"
-    tools:context="com.inapp.vpn.Activities.MainActivity">
+    tools:context="com.openvpn.vpn.Activities.MainActivity">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:gravity="center_horizontal"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/h_bg"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/navigationTop"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/uploading"
-            android:layout_marginTop="85dp"
-          />
-        <TextView
-            android:id="@+id/uploading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-          >
-        </TextView>
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView1"
-            android:adjustViewBounds="true"
-            android:background="@color/transparent"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_20sdp"
-            />
-    </LinearLayout>
+        android:text="@string/app_name" />
+
+
+
+
+
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_weight="1.5"
+        android:layout_marginTop="50dp">
+
+
+
+    <LinearLayout
+        android:layout_width="190dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
         android:orientation="vertical">
-        <ImageView
-            android:id="@+id/navigation"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/downloading"
-            android:layout_marginTop="85dp"
-            />
-        <TextView
-            android:id="@+id/downloading"
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            >
-        </TextView>
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView2"
-            android:layout_width="@dimen/_30sdp"
-            android:adjustViewBounds="true"
-            android:layout_height="@dimen/_20sdp"
-            android:background="@color/transparent"
-            />
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="2dp"
+            app:cardElevation="12dp"
+            android:layout_marginRight="0dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="135dp"
+                android:layout_height="178dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginRight="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/downloading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="0dp"
+                    android:text="3.4 mbit"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center"
+                    android:background="@color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:text="Download"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_15sdp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
+
+
+
+
+    <LinearLayout
+        android:layout_width="190dp"
+        android:layout_height="220dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="190dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="12dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="135dp"
+                android:layout_height="178dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="-5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/uploading"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3.4 mbit"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_15sdp"/>
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView1"
+                    android:adjustViewBounds="true"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@color/transparent"
+                    />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="@dimen/_15sdp">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
@@ -84,26 +195,34 @@
         android:visibility="visible"
         tools:context=".MainActivity">
 
+
         <ImageView
             android:id="@+id/category"
             android:layout_margin="20dp"
             android:src="@drawable/ic_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+
+
         <RelativeLayout
             android:id="@+id/btnServerList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/common_round_yellow"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="-50dp"
             android:padding="10dp">
 
-            <ImageView
+
+            <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/ic_crown"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_crown" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:background="@drawable/upgrade" />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -113,7 +232,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toEndOf="@+id/ic_crown"
                 android:layout_toRightOf="@+id/ic_crown"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -132,15 +252,62 @@
             </LinearLayout>
 
         </RelativeLayout>
+
+
         <RelativeLayout
-            android:layout_marginTop="@dimen/_30sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp">
+
+
+
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="35dp">
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/btn_button">
+
+                    <ImageView
+                        android:id="@+id/connect_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_on_off" />
+
+
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="0dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/map_load" />
+
+
+
             <TextView
                 android:id="@+id/connection_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="15dp"
                 android:drawableStart="@drawable/ic_dot"
                 android:drawableLeft="@drawable/ic_dot"
                 android:drawableEnd="@drawable/ic_signal"
@@ -148,221 +315,31 @@
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
                 android:text="Connected Server"
-                android:textColor="@color/white"
+                android:textColor="@color/primary"
                 android:textStyle="bold" />
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:src="@drawable/flag_default"
-                android:visibility="gone"
 
-                android:layout_marginEnd="20dp"
+            <ImageView
                 android:layout_width="30dp"
-                android:layout_centerVertical="true"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp" />
-        </RelativeLayout>
 
-
-        <RelativeLayout
-            android:id="@+id/vpn_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/common_round_white"
-            android:padding="10dp">
-
-            <LinearLayout
-                android:id="@+id/header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_marginRight="45dp"
-                    android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/flag_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/flag_image" />
-
-                </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/flag_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:textSize="17dp"
-                    android:text="Select Country"
-                    android:textColor="#000" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/vpn_details"
-                    android:layout_width="45dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/ic_drop_down" />
-
-            </LinearLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/footer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:layout_below="@+id/header"
-                android:layout_marginTop="10dp">
-
-                <View
-                    android:id="@+id/saperater"
-                    android:layout_width="2dp"
-                    android:layout_height="30dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="#000" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/saperater"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/status_arrow" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/connection_status"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center"
-                            android:text="Selected"
-                            android:textColor="#000"
-                            android:textSize="22dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/connection_status_image"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:gravity="center"
-                            android:visibility="gone"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/saperater"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/status_arrow" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:id="@+id/purchase_layout"
-                        android:text="Go Premium"
-                        android:textColor="#000"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_button">
-
-            <ImageView
-                android:id="@+id/connect_btn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/ic_on_off" />
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animation_view"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_below="@+id/connect_btn"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="-5dp"
-                android:layout_marginBottom="-5dp"
-                android:visibility="gone"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/loader" />
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/flag_default"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/status_time_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/animation_view"
+                android:layout_below="@id/connection_state"
+                android:layout_alignParentStart="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="-10dp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -371,81 +348,284 @@
                     android:text="Not Connected"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tv_timer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="00:00:56"
-                    android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:gravity="center"
+                    android:hint="Time 00:00:00"
+                    android:textColor="@color/textcolor"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="15sp" />
 
             </LinearLayout>
+
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/nvi"
-            android:orientation="vertical"
-            android:padding="10dp">
 
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="119dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="0dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp"
+            app:cardUseCompatPadding="true">
 
 
-            <TextView
-                android:layout_marginTop="35dp"
-                android:padding="20dp"
+            <RelativeLayout
+                android:id="@+id/vpn_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Try Free Server"
                 android:layout_gravity="center"
-                android:textColor="@color/gnt_black"
-                android:textStyle="bold" />
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="45dp">
+
+                        <ImageView
+                            android:id="@+id/flag_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/flag_image" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="30dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/flag_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:text="Select Country"
+                            android:textColor="#000"
+                            android:textSize="17dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginLeft="35dp">
+
+                        <ImageView
+                            android:id="@+id/vpn_details"
+                            android:layout_width="45dp"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_drop_down" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/footer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/saperater"
+                        android:layout_width="2dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:background="#000" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/saperater"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/status_arrow" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/connection_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center"
+                                android:text="Selected"
+                                android:textColor="#000"
+                                android:textSize="22dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/connection_status_image"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/saperater"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/status_arrow" />
+
+                        <TextView
+                            android:id="@+id/purchase_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:text="Go Premium"
+                            android:textColor="#000"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="2dp"
+            app:cardElevation="12dp"
+            android:layout_marginRight="0dp"
+            app:cardUseCompatPadding="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:weightSum="3">
+                android:visibility="visible">
 
                 <Button
                     android:padding="10dp"
                     android:id="@+id/speedButton"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="@dimen/_50sdp"
-                    android:text="Speed Booster"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/gnt_rounded_corners_shape">
+                    android:background="@drawable/computer">
 
                 </Button>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#32000000" />
+
                 <Button
-                    android:layout_weight="1"
                     android:id="@+id/BatteryButton"
-                    android:layout_width="0dp"
+                    android:layout_width="80dp"
                     android:padding="10dp"
-
-                    android:layout_height="@dimen/_50sdp"
-                    android:text="Battery Saver"
+                    android:layout_height="80dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/gnt_rounded_corners_shape">
+                    android:background="@drawable/battery">
                 </Button>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#32000000" />
+
                 <Button
-                    android:layout_weight="1"
                     android:id="@+id/cpuButton"
                     android:padding="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:text="CPU Cooler"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/gnt_rounded_corners_shape">
+                    android:background="@drawable/cooling">
 
                 </Button>
+
+
+
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <RelativeLayout
+            android:id="@+id/fl_adplaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+
+
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_free"
@@ -457,13 +637,7 @@
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/fl_adplaceholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"/>
 
-    </LinearLayout>
 </RelativeLayout>
 </ScrollView>
 

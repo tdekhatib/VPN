@@ -1,319 +1,319 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@drawable/three_month">
 
 
+    <RelativeLayout
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/purchases_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
-        app:title="Subscription"
-        app:titleTextColor="@color/white" />
-
-    <ScrollView
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
-        android:layout_height="1000dp">
-    <LinearLayout
+        android:layout_marginEnd="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unlock Premium Servers"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/purchases_toolbar"
-        android:layout_marginTop="-2dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center">
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:padding="5dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            app:cardUseCompatPadding="true">
+            android:text=" With No Ads"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@drawable/one_month"/>
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/vip_price_month"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="50dp"/>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp">
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="horizontal">
 
-                <RadioButton
-                    android:id="@+id/one_month"
-                    android:buttonTint="@color/white"
-                    android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="162dp"
+                android:layout_height="228dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp" />
+                    android:layout_margin="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"
-                    android:text="10% OFF"
-                    android:textSize="16dp"
-                    android:textColor="@color/white" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="90dp"
+                        android:text="Monthly"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="1 Month"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"/>
+                    <RadioButton
+                        android:id="@+id/one_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="160dp"
+                        android:button="@drawable/bg_checkbox"
+                        android:gravity="bottom" />
 
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="130dp"
+                        android:text="@string/vip_price_month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="83dp"
+                        android:layout_height="64dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/upgrade" />
 
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            app:cardUseCompatPadding="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@drawable/three_month"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="50dp"
-                android:text="@string/vip_price_3month"
-                android:textColor="@color/white" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp">
-
-                <RadioButton
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/three_month"
-                    android:layout_width="match_parent"
-                    android:buttonTint="@color/white"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"
-                    android:text="20% OFF"
-                    android:textSize="16dp"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="3 Month"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"/>
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="172dp"
+                android:layout_height="238dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="15dp"
+                app:cardUseCompatPadding="true">
 
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            app:cardUseCompatPadding="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@drawable/six_month"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/vip_price_6month"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="50dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp">
-
-                <RadioButton
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/six_month"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"/>
+                    android:layout_margin="15dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"
-                    android:text="35% OFF"
-                    android:textSize="16dp"
-                    android:textColor="@color/white" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="90dp"
+                        android:text="  3 Month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="6 Month"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"/>
+                    <RadioButton
+                        android:id="@+id/three_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="160dp"
+                        android:button="@drawable/bg_checkbox"
+                        android:gravity="bottom" />
 
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="130dp"
+                        android:text="@string/vip_price_3month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            app:cardUseCompatPadding="true">
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="83dp"
+                        android:layout_height="64dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/upgrade" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:background="@drawable/twelve_month" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/vip_price_12month"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="50dp"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/premium" />
 
-                <RadioButton
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/one_year"
-                    android:layout_width="match_parent"
+                    </RelativeLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="162dp"
+                android:layout_height="228dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"/>
+                    android:layout_margin="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"
-                    android:text="45% OFF"
-                    android:textSize="16dp"
-                    android:textColor="@color/white" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="90dp"
+                        android:text=" 6 Month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="12 Month"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="50dp"/>
+                    <RadioButton
+                        android:id="@+id/six_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="160dp"
+                        android:button="@drawable/bg_checkbox"
+                        android:gravity="bottom" />
 
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="130dp"
+                        android:text="@string/vip_price_6month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
-</ScrollView>
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="83dp"
+                        android:layout_height="64dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/upgrade" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="172dp"
+                android:layout_height="238dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="15dp"
+                app:cardUseCompatPadding="true">
+
+
+                <RelativeLayout
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="90dp"
+                        android:text=" 12 Month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/one_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="160dp"
+                        android:button="@drawable/bg_checkbox"
+                        android:gravity="bottom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="130dp"
+                        android:text="@string/vip_price_12month"
+                        android:textColor="@color/gnt_black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="83dp"
+                        android:layout_height="64dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/upgrade" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <Button
         android:id="@+id/all_pur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/one_month"
         android:text="     Buy Now     "
-        android:layout_marginBottom="10dp"
         android:textColor="@color/white"
         android:textSize="17dp" />
-
 
 </RelativeLayout>

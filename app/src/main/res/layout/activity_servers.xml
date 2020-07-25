@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/primary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@color/white"
         android:gravity="center_vertical"
         />
     <androidx.viewpager.widget.ViewPager
@@ -25,7 +27,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/splashscreencolor"
+        app:tabIndicatorColor="@color/textcolor"
         app:tabIndicatorHeight="4dp"
         app:tabSelectedTextColor="#000"
         app:tabMode="fixed"

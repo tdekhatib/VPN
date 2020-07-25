@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.inapp.vpn">
+    package="com.openvpn.vpn">
+
+
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -12,7 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".App"
+        android:name="com.openvpn.vpn.App"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -20,28 +22,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.Apps_Picker"></activity>
-        <activity android:name=".Activities.Black_Battery_Saver" />
-        <activity android:name=".Activities.Saving_Power_Comp" />
-        <activity android:name=".Activities.UApplying" />
-        <activity android:name=".Activities.NormalMode" />
-        <activity android:name=".Activities.UPopUp" />
-        <activity android:name=".Activities.PopUp_SavingPower" />
-        <activity android:name=".Activities.BatteryActivity" />
-        <activity android:name=".Activities.ScannerCPU" />
-        <activity android:name=".Activities.CPUCoolerActivity" />
-        <activity android:name=".Activities.SpeedBoosterActivity" />
-        <activity android:name=".Activities.UnlockAllActivity" />
+        <activity android:name="com.openvpn.vpn.Activities.Apps_Picker"></activity>
+        <activity android:name="com.openvpn.vpn.Activities.Black_Battery_Saver" />
+        <activity android:name="com.openvpn.vpn.Activities.Saving_Power_Comp" />
+        <activity android:name="com.openvpn.vpn.Activities.UApplying" />
+        <activity android:name="com.openvpn.vpn.Activities.NormalMode" />
+        <activity android:name="com.openvpn.vpn.Activities.UPopUp" />
+        <activity android:name="com.openvpn.vpn.Activities.PopUp_SavingPower" />
+        <activity android:name="com.openvpn.vpn.Activities.BatteryActivity" />
+        <activity android:name="com.openvpn.vpn.Activities.ScannerCPU" />
+        <activity android:name="com.openvpn.vpn.Activities.CPUCoolerActivity" />
+        <activity android:name="com.openvpn.vpn.Activities.SpeedBoosterActivity" />
+        <activity android:name="com.openvpn.vpn.Activities.UnlockAllActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_appid" />
 
         <activity
-            android:name=".Activities.IntroActivity"
+            android:name="com.openvpn.vpn.Activities.IntroActivity"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name=".Activities.SplashScreen"
+            android:name="com.openvpn.vpn.Activities.SplashScreen"
             android:theme="@style/Splashscreentheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,9 +52,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.Servers"
-            android:parentActivityName=".Activities.MainActivity" />
-        <activity android:name=".Activities.MainActivity" />
+            android:name="com.openvpn.vpn.Activities.Servers"
+            android:parentActivityName="com.openvpn.vpn.Activities.MainActivity" />
+        <activity android:name="com.openvpn.vpn.Activities.MainActivity" />
     </application>
 
 </manifest>

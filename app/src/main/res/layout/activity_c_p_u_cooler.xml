@@ -1,190 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_below="@id/top_bar"
     android:background="#FFFFFF"
-    android:fillViewport="true">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#FFFFFF"
-        android:weightSum="16">
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_weight="6.35"
-        android:background="@drawable/ic_bkg_blue"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarr"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:visibility="visible"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-        <com.inapp.vpn.Utils.CustomTxTRegular
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/transparent"
-            android:gravity="center"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            android:visibility="gone" />
-
-        <RelativeLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="6dp">
-
-            <ImageView
-                android:id="@+id/tempimg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_cpu_cooler_bg" />
-
-            <ImageView
-                android:id="@+id/iv_tempimg"
-                android:layout_width="match_parent"
-                android:layout_height="166dp"
-                android:visibility="invisible"
-                android:layout_marginTop="-40dp"
-                android:padding="65dp"
-                android:src="@drawable/ic_before_cpu_cooler_icon" />
-
-            <com.inapp.vpn.Utils.CustomTxtSemibold
-                android:id="@+id/batterytemp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_alignParentBottom="true"
-                android:gravity="center"
-                android:text="23.2"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/_20sdp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="150dp"
-            android:layout_height="60dp">
-
-            <LinearLayout
-                android:layout_width="170dp"
-                android:layout_height="60dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/cool_down"
-                    android:textColor="@color/primary_white_text"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/coolbutton"
-                android:layout_width="170dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                app:srcCompat="@drawable/clear_btn" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-        <com.inapp.vpn.Utils.CustomTxTRegular
-            android:id="@+id/showmain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/overheated"
-            android:textAlignment="center"
-            android:textColor="#FF0000"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
-
-        <com.inapp.vpn.Utils.CustomTxTRegular
-            android:id="@+id/showsec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/apps_are_causing_problem_hit_cool_down"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="@dimen/_9sdp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="7dp"
-        android:background="@color/colorview" />
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:scrollbars="none">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_weight="3.5"
-        android:gravity="center">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_height="260dp"
+            android:layout_weight="6.35"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-
-                android:id="@+id/recycler_view"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarr"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:foregroundGravity="center"
-                android:scrollbars="horizontal" />
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/h_bg"
+                android:visibility="visible"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            <com.openvpn.vpn.Utils.CustomTxTRegular
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginEnd="5dp">
+
+                <ImageView
+                    android:id="@+id/tempimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_cpu_cooler_bg" />
+
+                <ImageView
+                    android:id="@+id/iv_tempimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="166dp"
+                    android:layout_marginTop="-40dp"
+                    android:padding="65dp"
+                    android:src="@drawable/ic_before_cpu_cooler_icon"
+                    android:visibility="invisible" />
+
+                <com.openvpn.vpn.Utils.CustomTxtSemibold
+                    android:id="@+id/batterytemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:text="23.2"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-100dp"
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/btn_button">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/coolbutton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/n_bt"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="40dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <com.openvpn.vpn.Utils.CustomTxTRegular
+                    android:id="@+id/showmain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overheated"
+                    android:textAlignment="center"
+                    android:textColor="#FF0000"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.openvpn.vpn.Utils.CustomTxTRegular
+                    android:id="@+id/showsec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apps_are_causing_problem_hit_cool_down"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
-        <com.inapp.vpn.Utils.CustomTxTRegular
-            android:id="@+id/nooverheating"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-20dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Currently No App Causing Overheating"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-    </RelativeLayout>
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="6">
 
         <RelativeLayout
             android:id="@+id/fl_adplaceholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"/>
-</androidx.core.widget.NestedScrollView>
-    </LinearLayout>
+            android:layout_marginTop="500dp"
+            android:visibility="visible" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="300dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="190dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="0dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="3.5"
+                    android:gravity="center">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <androidx.recyclerview.widget.RecyclerView
+
+                            android:id="@+id/recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:foregroundGravity="center"
+                            android:scrollbars="horizontal" />
+
+                    </LinearLayout>
+
+                    <com.openvpn.vpn.Utils.CustomTxTRegular
+                        android:id="@+id/nooverheating"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="-20dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="No App Causing Overheating at this time"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textSize="15dp" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
 </ScrollView>
+

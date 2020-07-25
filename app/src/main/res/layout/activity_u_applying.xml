@@ -4,19 +4,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
     android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_centerInParent="true"
-        android:layout_weight="6"
-        android:background="@drawable/ic_bkg_blue"
+        android:layout_weight="3.3"
+        android:background="@color/white"
+        android:layout_marginTop="-10dp"
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.inapp.vpn.Utils.CustomTxTRegular
+        <com.openvpn.vpn.Utils.CustomTxTRegular
             android:textSize="18sp"
             android:textStyle="normal"
             android:gravity="center"
@@ -24,8 +24,8 @@
             android:textColor="#FFFFFF"
             android:id="@+id/name"
             android:layout_marginTop="-35dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/transparent"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/h_bg_one"
             android:layout_width="match_parent"
             android:text="Extreme Power Saving Mode"
             android:layout_height="?attr/actionBarSize" />
@@ -34,7 +34,6 @@
             android:layout_width="230dp"
             android:layout_height="230dp"
             android:layout_marginTop="-10dp"
-            android:background="@drawable/ic_normal_power_mode_rounded"
             android:gravity="center">
 
             <com.hookedonplay.decoviewlib.DecoView
@@ -47,13 +46,13 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="-6dp"/>
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:id="@+id/completion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="25%"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="@dimen/_25sdp" />
         </RelativeLayout>
 
@@ -67,10 +66,21 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/l_gif" />
+
+
+
         <LinearLayout
             android:weightSum="20"
             android:orientation="horizontal"
             android:layout_weight="1"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
@@ -79,11 +89,12 @@
                 android:src="@drawable/ic_grey_dot"
                 android:id="@+id/istpic"
                 android:layout_weight="1.5"
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
 
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:gravity="center|left"
                 android:id="@+id/ist"
                 android:text="Decreasing Brightness Upto 90%"
@@ -91,6 +102,7 @@
                 android:layout_weight="18.5"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="0dp"
+                android:layout_marginStart="27dp"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -101,12 +113,14 @@
             android:layout_marginRight="10dp"
             android:background="@color/colorview"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="1dp"/>
 
         <LinearLayout
             android:weightSum="20"
             android:orientation="horizontal"
             android:layout_weight="1"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
@@ -114,12 +128,13 @@
                 android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_grey_dot"
                 android:id="@+id/secpic"
+                android:visibility="gone"
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
 
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:gravity="center|left"
                 android:id="@+id/sec"
                 android:text="Decreasing Device Performance"
@@ -127,6 +142,7 @@
                 android:layout_weight="18.5"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="0dp"
+                android:layout_marginStart="27dp"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -135,6 +151,7 @@
             android:id="@+id/view_two"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
+            android:visibility="gone"
             android:background="@color/colorview"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
@@ -143,12 +160,14 @@
             android:weightSum="20"
             android:orientation="horizontal"
             android:layout_weight="1"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
             <ImageView
                 android:layout_gravity="center"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 android:src="@drawable/ic_grey_dot"
                 android:id="@+id/thipic"
                 android:layout_weight="1.5"
@@ -156,7 +175,7 @@
                 android:layout_height="match_parent" />
 
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:gravity="center|left"
                 android:id="@+id/thi"
                 android:text="Closing Background Apps and Services"
@@ -164,6 +183,7 @@
                 android:layout_weight="18.5"
                 android:textSize="@dimen/_12sdp"
                 android:layout_width="0dp"
+                android:layout_marginStart="27dp"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
@@ -173,6 +193,7 @@
             android:background="@color/colorview"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="10dp"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
@@ -180,12 +201,14 @@
             android:weightSum="20"
             android:orientation="horizontal"
             android:layout_weight="1"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
             <ImageView
                 android:layout_gravity="top"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 android:src="@drawable/ic_grey_dot"
                 android:id="@+id/foupic"
                 android:layout_weight="1.5"
@@ -193,13 +216,14 @@
                 android:layout_height="match_parent" />
 
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:gravity="center|left"
                 android:id="@+id/fou"
                 android:text="Locking Acess To Power Consuming Apps"
                 android:textColor="@color/colorlightgrey"
                 android:layout_weight="18.5"
                 android:textSize="@dimen/_12sdp"
+                android:layout_marginStart="27dp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
 
@@ -210,12 +234,14 @@
             android:id="@+id/view_four"
             android:background="@color/colorview"
             android:layout_marginLeft="30dp"
+            android:visibility="gone"
             android:layout_marginRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
         <LinearLayout
             android:weightSum="20"
+            android:visibility="gone"
             android:orientation="horizontal"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -228,17 +254,18 @@
                 android:id="@+id/fifthpic"
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="match_parent" />
 
 
-            <com.inapp.vpn.Utils.CustomTxTRegular
+            <com.openvpn.vpn.Utils.CustomTxTRegular
                 android:gravity="center|left"
                 android:id="@+id/fif"
                 android:text="Closing All Power Consuming Functions"
                 android:textColor="@color/colorlightgrey"
                 android:layout_weight="18.5"
                 android:layout_width="0dp"
-
+                android:layout_marginStart="27dp"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
@@ -246,6 +273,7 @@
             android:id="@+id/view_five"
             android:background="@color/colorview"
             android:layout_marginLeft="30dp"
+            android:visibility="gone"
             android:layout_marginRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>

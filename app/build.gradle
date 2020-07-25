@@ -3,7 +3,7 @@ buildscript {
         maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
-        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.8'
     }
 }
 apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
@@ -22,11 +22,11 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId 'com.inapp.vpn'
+        applicationId 'com.openvpn.vpn'
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 10
+        versionName "1.3"
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -52,10 +52,10 @@ android {
 
         }
         debug {
-            //storeFile file('D:\\keystore\\Vpntest.jks')
-            //storePassword '123456789'
-            //keyAlias = 'vpntest'
-            //keyPassword '123456789'
+            storeFile file('D:\\keystore\\Vpntest.jks')
+            storePassword '123456789'
+            keyAlias = 'vpntest'
+            keyPassword '123456789'
         }
     }
     buildTypes {
@@ -90,9 +90,12 @@ android {
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.github.AnchorFreePartner.hydra-sdk-android:sdk:2.0.0'
+    implementation 'com.github.AnchorFreePartner.hydra-sdk-android:sdk:3.3.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //new
+    implementation 'com.google.android.gms:play-services-basement:15.0.0'
 
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'

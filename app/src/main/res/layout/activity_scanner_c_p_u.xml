@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_weight="6"
-        android:background="@drawable/ic_bkg_blue"
+        android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
@@ -18,10 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:visibility="visible"
+            android:background="@drawable/h_bg_one"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-        <com.inapp.vpn.Utils.CustomTxTRegular
+        <com.openvpn.vpn.Utils.CustomTxTRegular
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -104,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.inapp.vpn.Utils.CustomTxtSemibold
+        <com.openvpn.vpn.Utils.CustomTxtSemibold
             android:id="@+id/cpucooler"
             android:textColor="@color/tab_background_selected"
             android:textAppearance="?android:textAppearanceLarge"
@@ -141,7 +142,6 @@
         <ImageView
             android:layout_marginLeft="-700dp"
             android:id="@+id/heart"
-            android:src="@drawable/ic_cpu_cooler_wave"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/_15sdp"/>
@@ -165,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:visibility="visible"
+        android:visibility="gone"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit"/>
 </LinearLayout>

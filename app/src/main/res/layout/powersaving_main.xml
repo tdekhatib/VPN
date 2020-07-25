@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/three_month"
     android:layout_weight="12"
    >
 <LinearLayout
@@ -135,28 +135,28 @@
         <ImageView
             android:id="@+id/playstore"
             android:padding="@dimen/_9sdp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/logo"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <ImageView
             android:id="@+id/contacts"
             android:padding="@dimen/_9sdp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/logo"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <ImageView
             android:id="@+id/calculator"
             android:padding="@dimen/_9sdp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/logo"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <ImageView
             android:id="@+id/alaram"
             android:padding="@dimen/_9sdp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/logo"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />

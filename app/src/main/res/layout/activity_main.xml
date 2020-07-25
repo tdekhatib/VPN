@@ -22,12 +22,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@drawable/uptab"
         android:fitsSystemWindows="true"
+        android:background="@drawable/three_month"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        app:itemTextColor="#ffffff"
-        app:itemIconTint="@color/white">
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF">
 
 
         <TextView
@@ -36,16 +36,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="450dp"
             android:layout_marginLeft="70dp"
-            android:text="Version 1.1"
-            android:textColor="@color/white"/>
+            android:text="@string/version"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="#FFFFFF"/>
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:srcCompat="@drawable/like"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/dra_one"
             android:layout_marginTop="408dp"
-            android:layout_marginLeft="85dp"/>
+            android:layout_marginLeft="95dp"
+            tools:ignore="VectorDrawableCompat" />
 
 
 
