@@ -5,27 +5,29 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.anchorfree.hydrasdk.HydraSdk;
-import com.anchorfree.hydrasdk.SessionConfig;
-import com.anchorfree.hydrasdk.SessionInfo;
-import com.anchorfree.hydrasdk.api.AuthMethod;
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.api.data.ServerCredentials;
-import com.anchorfree.hydrasdk.api.response.RemainingTraffic;
-import com.anchorfree.hydrasdk.api.response.User;
-import com.anchorfree.hydrasdk.callbacks.Callback;
-import com.anchorfree.hydrasdk.callbacks.CompletableCallback;
-import com.anchorfree.hydrasdk.callbacks.TrafficListener;
-import com.anchorfree.hydrasdk.callbacks.VpnStateListener;
-import com.anchorfree.hydrasdk.compat.CredentialsCompat;
-import com.anchorfree.hydrasdk.dns.DnsRule;
-import com.anchorfree.hydrasdk.exceptions.ApiHydraException;
-import com.anchorfree.hydrasdk.exceptions.HydraException;
-import com.anchorfree.hydrasdk.exceptions.NetworkRelatedException;
-import com.anchorfree.hydrasdk.exceptions.RequestException;
-import com.anchorfree.hydrasdk.exceptions.VPNException;
-import com.anchorfree.hydrasdk.vpnservice.VPNState;
+import com.anchorfree.partner.api.auth.AuthMethod;
+import com.anchorfree.partner.api.callback.Callback;
+import com.anchorfree.partner.api.data.Country;
+import com.anchorfree.partner.api.response.RemainingTraffic;
+import com.anchorfree.partner.api.response.User;
+import com.anchorfree.partner.exceptions.PartnerRequestException;
+import com.anchorfree.partner.exceptions.RequestException;
 import com.anchorfree.reporting.TrackingConstants;
+import com.anchorfree.sdk.SessionConfig;
+import com.anchorfree.sdk.UnifiedSDK;
+import com.anchorfree.sdk.compat.DnsRule;
+import com.anchorfree.sdk.exceptions.PartnerApiException;
+import com.anchorfree.sdk.rules.TrafficRule;
+import com.anchorfree.vpnsdk.callbacks.CompletableCallback;
+import com.anchorfree.vpnsdk.callbacks.TrafficListener;
+import com.anchorfree.vpnsdk.callbacks.VpnStateListener;
+import com.anchorfree.vpnsdk.exceptions.NetworkRelatedException;
+import com.anchorfree.vpnsdk.exceptions.VpnException;
+import com.anchorfree.vpnsdk.exceptions.VpnPermissionDeniedException;
+import com.anchorfree.vpnsdk.exceptions.VpnPermissionRevokedException;
+import com.anchorfree.vpnsdk.exceptions.VpnTransportException;
+import com.anchorfree.vpnsdk.transporthydra.HydraVpnTransportException;
+import com.anchorfree.vpnsdk.vpnservice.VPNState;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.google.android.gms.ads.AdListener;
@@ -60,8 +62,8 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
 
 //      Try to connect to the vpn server...
         loginToVpn();
-        HydraSdk.addTrafficListener(this);
-        HydraSdk.addVpnListener(this);
+        UnifiedSDK.addTrafficListener(this);
+        UnifiedSDK.addVpnStateListener(this);
         Intent intent = getIntent();
         selectedCountry = intent.getStringExtra("c");
 
@@ -123,7 +125,7 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
                     connectToVpn();
                 }
 
-            }else {
+            } else {
                 locale = new Locale("", selectedCountry);
 
                 imgFlag.setImageResource(getResources().getIdentifier("drawable/" + selectedCountry.toLowerCase(), null, getPackageName()));
@@ -141,8 +143,8 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
     protected void onStop() {
 //        application stopped...
         super.onStop();
-        HydraSdk.removeVpnListener(this);
-        HydraSdk.removeTrafficListener(this);
+        UnifiedSDK.removeVpnStateListener(this);
+        UnifiedSDK.removeTrafficListener(this);
     }
 
     @Override
@@ -157,120 +159,150 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
     }
 
     @Override
-    public void vpnError(HydraException e) {
-//        Exception to connect to the vpn...
+    public void vpnError(@NonNull VpnException e) {
         updateUI();
         handleError(e);
     }
+
+    private void handleError(VpnException e) {
+        Log.w(TAG, e);
+        if (e instanceof NetworkRelatedException) {
+            showMessage("Check internet connection");
+        } else if (e != null) {
+            if (e instanceof VpnPermissionRevokedException) {
+                showMessage("User revoked vpn permissions");
+            } else if (e instanceof VpnPermissionDeniedException) {
+                showMessage("User canceled to grant vpn permissions");
+            } else if (e instanceof HydraVpnTransportException) {
+                VpnTransportException hydraVpnTransportException = (VpnTransportException) e;
+                if (hydraVpnTransportException.getCode() == HydraVpnTransportException.HYDRA_ERROR_BROKEN) {
+                    showMessage("Connection with vpn server was lost");
+                } else if (hydraVpnTransportException.getCode() == HydraVpnTransportException.HYDRA_DCN_BLOCKED_BW) {
+                    showMessage("Client traffic exceeded");
+                } else {
+                    showMessage("Error in VPN transport");
+                }
+            } else {
+                showMessage("Error in VPN Service");
+            }
+        }
+    }
+
 
     @Override
     protected void loginToVpn() {
 //        try to login to the vpn...
         AuthMethod authMethod = AuthMethod.anonymous();
-        HydraSdk.login(authMethod, new Callback<User>() {
+        UnifiedSDK.getInstance().getBackend().login(authMethod, new com.anchorfree.vpnsdk.callbacks.Callback<User>() {
             @Override
-            public void success(User user) {
+            public void success(@NonNull User user) {
+
             }
 
             @Override
-            public void failure(HydraException e) {
-                handleError(e);
+            public void failure(@NonNull VpnException e) {
+
             }
         });
     }
 
     @Override
     protected void isConnected(Callback<Boolean> callback) {
-        HydraSdk.getVpnState(new Callback<VPNState>() {
+        UnifiedSDK.getVpnState(new com.anchorfree.vpnsdk.callbacks.Callback<VPNState>() {
             @Override
             public void success(@NonNull VPNState vpnState) {
-//                vpn connected successfully...
                 callback.success(vpnState == VPNState.CONNECTED);
+
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
-//                vpn failed to connect...
+            public void failure(@NonNull VpnException e) {
                 callback.success(false);
+
             }
+
         });
     }
 
     @Override
     protected void connectToVpn() {
-        if (selectedCountry == null)
-            selectedCountry = HydraSdk.COUNTRY_OPTIMAL;
-        if (HydraSdk.isLoggedIn()) {
+        if (selectedCountry == null) selectedCountry = UnifiedSDK.COUNTRY_OPTIMAL;
+        if (UnifiedSDK.getInstance().getBackend().isLoggedIn()) {
             showConnectProgress();
             List<String> bypassDomains = new LinkedList<>();
             bypassDomains.add("*facebook.com");
             bypassDomains.add("*wtfismyip.com");
-            HydraSdk.startVPN(new SessionConfig.Builder()
-                    .withReason(TrackingConstants.GprReasons.M_UI)
-                    .withVirtualLocation(selectedCountry)
-                    .addDnsRule(DnsRule.Builder.bypass().fromDomains(bypassDomains))
-                    .build(), new Callback<ServerCredentials>() {
-                @Override
-                public void success(ServerCredentials serverCredentials) {
-                    hideConnectProgress();
-                    startUIUpdateTask();
-                }
+            UnifiedSDK.getInstance().getVPN().start(
+                    new SessionConfig.Builder()
+                            .withReason(TrackingConstants.GprReasons.M_UI)
+                            .withVirtualLocation(selectedCountry)
+                            .addDnsRule(TrafficRule.Builder.bypass().fromDomains(bypassDomains))
+                            .build(), new CompletableCallback() {
+                        @Override
+                        public void complete() {
+                            hideConnectProgress();
+                            startUIUpdateTask();
+                        }
 
-                @Override
-                public void failure(HydraException e) {
-                    hideConnectProgress();
-                    updateUI();
+                        @Override
+                        public void error(@NonNull VpnException e) {
+                            hideConnectProgress();
+                            updateUI();
+                            handleError(e);
+                        }
 
-                    handleError(e);
-                }
-            });
+                    });
+
         } else {
             loginToVpn();
             showConnectProgress();
             List<String> bypassDomains = new LinkedList<>();
             bypassDomains.add("*facebook.com");
             bypassDomains.add("*wtfismyip.com");
-            HydraSdk.startVPN(new SessionConfig.Builder()
-                    .withReason(TrackingConstants.GprReasons.M_UI)
-                    .withVirtualLocation(selectedCountry)
-                    .addDnsRule(DnsRule.Builder.bypass().fromDomains(bypassDomains))
-                    .build(), new Callback<ServerCredentials>() {
-                @Override
-                public void success(ServerCredentials serverCredentials) {
-                    hideConnectProgress();
-                    startUIUpdateTask();
-                }
+            UnifiedSDK.getInstance().getVPN().start(
+                    new SessionConfig.Builder()
+                            .withReason(TrackingConstants.GprReasons.M_UI)
+                            .withVirtualLocation(selectedCountry)
+                            .addDnsRule(TrafficRule.Builder.bypass().fromDomains(bypassDomains))
+                            .build(), new CompletableCallback() {
+                        @Override
+                        public void complete() {
+                            hideConnectProgress();
+                            startUIUpdateTask();
+                        }
 
-                @Override
-                public void failure(HydraException e) {
-                    hideConnectProgress();
-                    updateUI();
+                        @Override
+                        public void error(@NonNull VpnException e) {
+                            hideConnectProgress();
+                            updateUI();
+                            handleError(e);
+                        }
 
-                    handleError(e);
-                }
-            });
+                    });
         }
+
+
     }
 
     @Override
     protected void disconnectFromVnp() {
 //        Disconnect from vpn server...
         showConnectProgress();
-        HydraSdk.stopVPN(TrackingConstants.GprReasons.M_UI, new CompletableCallback() {
-            @Override
-            public void complete() {
-                hideConnectProgress();
-                stopUIUpdateTask();
-            }
+        UnifiedSDK.getInstance().getVPN().stop
+                (TrackingConstants.GprReasons.M_UI, new CompletableCallback() {
+                    @Override
+                    public void complete() {
+                        hideConnectProgress();
+                        stopUIUpdateTask();
+                    }
 
-            @Override
-            public void error(HydraException e) {
-                hideConnectProgress();
-                updateUI();
-
-                handleError(e);
-            }
-        });
+                    @Override
+                    public void error(@NonNull VpnException e) {
+                        hideConnectProgress();
+                        updateUI();
+                        handleError(e);
+                    }
+                });
     }
 
     @Override
@@ -281,39 +313,30 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
     @Override
     protected void getCurrentServer(final Callback<String> callback) {
 //        try to connect to the current or selected vpn...
-        HydraSdk.getVpnState(new Callback<VPNState>() {
+        UnifiedSDK.getVpnState(new com.anchorfree.vpnsdk.callbacks.Callback<VPNState>() {
             @Override
-            public void success(@NonNull VPNState state) {
+            public void success(@NonNull VPNState vpnState) {
                 if (state == VPNState.CONNECTED) {
-                    HydraSdk.getSessionInfo(new Callback<SessionInfo>() {
-                        @Override
-                        public void success(@NonNull SessionInfo sessionInfo) {
-//                            vpn connected Successfully...
-                            callback.success(CredentialsCompat.getServerCountry(sessionInfo.getCredentials()));
-                        }
-
-                        @Override
-                        public void failure(@NonNull HydraException e) {
-//                            vpn failed to connect...
-                            callback.success(selectedCountry);
-                        }
-                    });
-
-                } else {
                     callback.success(selectedCountry);
                 }
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
-                callback.failure(e);
+            public void failure(@NonNull VpnException e) {
+                callback.failure(PartnerRequestException.fromTransport(e));
+
             }
         });
     }
 
     @Override
     protected void checkRemainingTraffic() {
-        HydraSdk.remainingTraffic(new Callback<RemainingTraffic>() {
+
+    }
+
+  /*  @Override
+    protected void checkRemainingTraffic() {
+        UnifiedSDK.get.remainingTraffic(new Callback<RemainingTraffic>() {
             @Override
             public void success(RemainingTraffic remainingTraffic) {
                 updateRemainingTraffic(remainingTraffic);
@@ -327,82 +350,9 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
             }
         });
     }
+*/
 
 
-    @Override
-    public void onRegionSelected(Country item) {
-
-//        Check which country vpn server selected
-
-        selectedCountry = item.getCountry();
-        updateUI();
-
-        HydraSdk.getVpnState(new Callback<VPNState>() {
-            @Override
-            public void success(@NonNull VPNState state) {
-                if (state == VPNState.CONNECTED) {
-                    showMessage("Reconnecting to VPN with " + selectedCountry);
-                    HydraSdk.stopVPN(TrackingConstants.GprReasons.M_UI, new CompletableCallback() {
-                        @Override
-                        public void complete() {
-                            connectToVpn();
-                        }
-
-                        @Override
-                        public void error(HydraException e) {
-                            // In this case we try to reconnect
-                            selectedCountry = "";
-                            connectToVpn();
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void failure(@NonNull HydraException e) {
-
-            }
-        });
-    }
-
-    // Example of error handling
-    public void handleError(Throwable e) {
-        Log.w(TAG, e);
-        if (e instanceof NetworkRelatedException) {
-            showMessage("Check internet connection");
-        } else if (e instanceof VPNException) {
-//
-            switch (((VPNException) e).getCode()) {
-                case VPNException.REVOKED:
-                    showMessage("User revoked vpn permissions");
-                    break;
-                case VPNException.VPN_PERMISSION_DENIED_BY_USER:
-                    showMessage("User canceled to grant vpn permissions");
-                    break;
-                case VPNException.HYDRA_ERROR_BROKEN:
-                    showMessage("Connection with vpn service was lost");
-                    break;
-                case VPNException.HYDRA_DCN_BLOCKED_BW:
-                    showMessage("Client traffic exceeded");
-                    break;
-                default:
-                    showMessage("Error in VPN Service");
-                    break;
-            }
-        } else if (e instanceof ApiHydraException) {
-            switch (((ApiHydraException) e).getContent()) {
-                case RequestException.CODE_NOT_AUTHORIZED:
-                    /* showMessage("");*/
-                    break;
-                case RequestException.CODE_TRAFFIC_EXCEED:
-                    /* showMessage("Server unavailable");*/
-                    break;
-                default:
-                    /* showMessage("Other error. Check RequestException constants");*/
-                    break;
-            }
-        }
-    }
 
     @Override
     public void onProductPurchased(String productId, TransactionDetails details) {
@@ -427,7 +377,6 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
     private void checkSubscriptions() {
 
 
-
         if (bp.isSubscribed(Config.all_month_id) ||
                 bp.isSubscribed(Config.all_threemonths_id) ||
                 bp.isSubscribed(Config.all_sixmonths_id) ||
@@ -436,5 +385,38 @@ public class MainActivity extends ContentsActivity implements TrafficListener, V
             Config.all_subscription = true;
         }
         updateSubscription();
+    }
+
+    @Override
+    public void onRegionSelected(Country item) {
+        selectedCountry = item.getCountry();
+        updateUI();
+        UnifiedSDK.getVpnState(new com.anchorfree.vpnsdk.callbacks.Callback<VPNState>() {
+            @Override
+            public void success(@NonNull VPNState vpnState) {
+                if (state == VPNState.CONNECTED) {
+                    showMessage("Reconnecting to VPN with " + selectedCountry);
+                    UnifiedSDK.getInstance().getVPN().stop(TrackingConstants.GprReasons.M_UI, new CompletableCallback() {
+                        @Override
+                        public void complete() {
+                            connectToVpn();
+                        }
+
+                        @Override
+                        public void error(@NonNull VpnException e) {
+                            selectedCountry = "";
+                            connectToVpn();
+                        }
+
+                    });
+                }
+            }
+
+            @Override
+            public void failure(@NonNull VpnException e) {
+
+            }
+        });
+
     }
 }

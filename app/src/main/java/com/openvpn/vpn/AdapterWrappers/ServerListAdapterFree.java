@@ -12,8 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.api.response.RemainingTraffic;
+import com.anchorfree.partner.api.data.Country;
+import com.anchorfree.partner.api.response.RemainingTraffic;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;

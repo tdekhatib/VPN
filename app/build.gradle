@@ -52,10 +52,10 @@ android {
 
         }
         debug {
-            storeFile file('D:\\keystore\\Vpntest.jks')
+          /*  storeFile file('D:\\keystore\\Vpntest.jks')
             storePassword '123456789'
             keyAlias = 'vpntest'
-            keyPassword '123456789'
+            keyPassword '123456789'*/
         }
     }
     buildTypes {

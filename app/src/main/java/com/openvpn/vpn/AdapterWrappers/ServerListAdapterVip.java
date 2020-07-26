@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.api.response.RemainingTraffic;
+import com.anchorfree.partner.api.data.Country;
+import com.anchorfree.partner.api.response.RemainingTraffic;
 import com.openvpn.vpn.R;
 import com.openvpn.vpn.Activities.MainActivity;
 

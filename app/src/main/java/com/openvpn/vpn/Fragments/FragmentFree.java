@@ -13,10 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anchorfree.hydrasdk.HydraSdk;
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.callbacks.Callback;
-import com.anchorfree.hydrasdk.exceptions.HydraException;
+import com.anchorfree.partner.api.data.Country;
+import com.anchorfree.partner.api.response.AvailableCountries;
+import com.anchorfree.sdk.UnifiedSDK;
+import com.anchorfree.vpnsdk.callbacks.Callback;
+import com.anchorfree.vpnsdk.exceptions.VpnException;
 import com.google.android.gms.ads.InterstitialAd;
 import com.openvpn.vpn.R;
 import com.openvpn.vpn.AdapterWrappers.ServerListAdapterFree;
@@ -82,9 +83,10 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
     }
 
     private void loadServers() {
-        HydraSdk.countries(new Callback<List<Country>>() {
+        UnifiedSDK.getInstance().getBackend().countries(new Callback<AvailableCountries>() {
             @Override
-            public void success(List<Country> countries) {
+            public void success(@NonNull AvailableCountries availableCountries) {
+                List<Country> countries = availableCountries.getCountries();
                 for (int i = 0; i < countries.size(); i++) {
                     if(isAds){
                         if (i % 2 == 0) {
@@ -106,7 +108,7 @@ public class FragmentFree extends Fragment implements ServerListAdapterFree.Regi
             }
 
             @Override
-            public void failure(HydraException e) {
+            public void failure(@NonNull VpnException e) {
 
             }
         });

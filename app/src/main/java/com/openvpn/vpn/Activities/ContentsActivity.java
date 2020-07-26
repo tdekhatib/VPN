@@ -30,12 +30,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.anchorfree.hydrasdk.HydraSdk;
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.api.response.RemainingTraffic;
-import com.anchorfree.hydrasdk.callbacks.Callback;
-import com.anchorfree.hydrasdk.exceptions.HydraException;
-import com.anchorfree.hydrasdk.vpnservice.VPNState;
+
+import com.anchorfree.partner.api.callback.Callback;
+import com.anchorfree.partner.api.response.RemainingTraffic;
+import com.anchorfree.partner.exceptions.PartnerRequestException;
+import com.anchorfree.sdk.UnifiedSDK;
+import com.anchorfree.vpnsdk.exceptions.VpnException;
+import com.anchorfree.vpnsdk.vpnservice.VPNState;
 import com.openvpn.vpn.BuildConfig;
 import com.openvpn.vpn.R;
 import com.google.android.gms.ads.AdListener;
@@ -489,9 +490,11 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                 }
 
                 @Override
-                public void failure(@NonNull HydraException e) {
-                    Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show();
+                public void failure(PartnerRequestException error) {
+                    Toast.makeText(getApplicationContext(), "" + error.getMessage(), Toast.LENGTH_LONG).show();
+
                 }
+
             });
         }
 
@@ -656,9 +659,11 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
+            public void failure(PartnerRequestException error) {
 
             }
+
+
         });
     }
 
@@ -813,9 +818,12 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
-                Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_LONG).show();
+            public void failure(PartnerRequestException error) {
+                Toast.makeText(getApplicationContext(), "" + error.getMessage(), Toast.LENGTH_LONG).show();
+
             }
+
+
         });
 
     }
@@ -850,7 +858,8 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         gifImageView1.setBackgroundResource(R.drawable.static_img);
         gifImageView2.setBackgroundResource(R.drawable.static_img);
 //        To find vpn state...
-        HydraSdk.getVpnState(new Callback<VPNState>() {
+
+        UnifiedSDK.getVpnState(new com.anchorfree.vpnsdk.callbacks.Callback<VPNState>() {
             @Override
             public void success(@NonNull VPNState vpnState) {
                 state = vpnState;
@@ -909,7 +918,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
+            public void failure(@NonNull VpnException e) {
 
             }
         });
@@ -926,8 +935,11 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
             }
 
             @Override
-            public void failure(@NonNull HydraException e) {
+            public void failure(PartnerRequestException error) {
+
             }
+
+
         });
     }
 
@@ -1226,29 +1238,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
                 .build());
     }
 
-    private void loadFreeServers() {
-        HydraSdk.countries(new Callback<List<Country>>() {
-            @Override
-            public void success(List<Country> countries) {
-                ArrayList<Country> countryArrayList = new ArrayList<>();
-                for (int i = 0; i < countries.size(); i++) {
-                    if (i % 2 == 0) {
-                        countryArrayList.add(countries.get(i));
-                    }
-                }
-                ServerListAdapterFree adapter = new ServerListAdapterFree(ContentsActivity.this);
-                rcvFree.setHasFixedSize(true);
-                rcvFree.setLayoutManager(new LinearLayoutManager(ContentsActivity.this, LinearLayoutManager.VERTICAL, false));
-                rcvFree.setAdapter(adapter);
 
-            }
-
-            @Override
-            public void failure(HydraException e) {
-
-            }
-        });
-    }
 
     @OnClick(R.id.purchase_layout)
     void goPurchase() {
@@ -1308,7 +1298,7 @@ public abstract class ContentsActivity extends AppCompatActivity implements Navi
         Log.e("speed-->>", "down-->>" + mSpeed.down.speedValue + "    upload-->>" + mSpeed.up.speedValue);
 
 
-        if (mSpeed != null && mSpeed.up != null && mSpeed.down != null && state.equals(VPNState.CONNECTED)) {
+        if (state != null &&mSpeed != null && mSpeed.up != null && mSpeed.down != null && state.equals(VPNState.CONNECTED)) {
 
 
             textDownloading.setText(mSpeed.down.speedValue + " " + mSpeed.down.speedUnit);

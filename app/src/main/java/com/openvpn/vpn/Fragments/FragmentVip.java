@@ -15,10 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anchorfree.hydrasdk.HydraSdk;
-import com.anchorfree.hydrasdk.api.data.Country;
-import com.anchorfree.hydrasdk.callbacks.Callback;
-import com.anchorfree.hydrasdk.exceptions.HydraException;
+import com.anchorfree.partner.api.data.Country;
+import com.anchorfree.partner.api.response.AvailableCountries;
+import com.anchorfree.sdk.UnifiedSDK;
+import com.anchorfree.vpnsdk.callbacks.Callback;
+import com.anchorfree.vpnsdk.exceptions.VpnException;
 import com.openvpn.vpn.R;
 import com.efaso.admob_advanced_native_recyvlerview.AdmobNativeAdAdapter;
 import com.openvpn.vpn.Activities.UnlockAllActivity;
@@ -99,8 +100,25 @@ public class FragmentVip extends Fragment implements ServerListAdapterVip.Region
     }
 
     private void loadServers() {
-        HydraSdk.countries(new Callback<List<Country>>() {
+        UnifiedSDK.getInstance().getBackend().countries(new Callback<AvailableCountries>() {
             @Override
+            public void success(@NonNull AvailableCountries availableCountries) {
+                for (int i = 0; i < availableCountries.getCountries().size(); i++) {
+                    if (availableCountries.getCountries().get(i).getServers() > 0) {
+                        countryArrayList.add(availableCountries.getCountries().get(i));
+                    }
+                }
+                adapter.notifyDataSetChanged();
+
+                animationHolder.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void failure(@NonNull VpnException e) {
+
+            }
+        } );
+          /*  @Override
             public void success(List<Country> countries) {
                 for (int i = 0; i < countries.size(); i++) {
                     if (countries.get(i).getServers() > 0) {
@@ -116,7 +134,7 @@ public class FragmentVip extends Fragment implements ServerListAdapterVip.Region
             public void failure(HydraException e) {
 
             }
-        });
+        });*/
     }
 
     @Override
